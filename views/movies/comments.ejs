@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+  <div class="container">
+
+<div class="heading text-center">
+  <h1>Comment On:</h1>
+</div>
+
+
+<div class="commentsmoviehead text-center">
+
+  <h2><%= foundData.title %></h2>
+
+</div>
+
+<div class="commentform">
+<form action="/favorites/<%= foundData.id %>/comments" method="POST">
+  <textarea class="form-control" name="commentinput" rows="3"></textarea>
+  <input type="submit" class="btn btn-stroke-black btn-xs btn-block" value="Submit">
+</form>
+</div>
+
+  <div class="row">
+   <div class="col-md-10 col-md-offset-1" id="commentposts">
+
+      <% for (var i = 0; i < commentData.length; i++) { %>
+
+      <div class="row" id="comments"><%= commentData[i].comment %></div>
+
+
+      <% } %>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+<% include ../partials/footer %>

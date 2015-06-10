@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+
+
+<div class="heading text-center">
+  <h1>Favorites</h1>
+</div>
+
+ <table class="table" id="favoritestable">
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>ImdbID</th>
+      <th>Poster</th>
+      <th>Details</th>
+      <th>View Comments</th>
+      <th>Delete</th>
+
+    </tr>
+    <% for (i = 0; i < faves.length; i += 1) { %>
+      <tr>
+        <td><%= faves[i].title %></td>
+        <td><%= faves[i].year %></td>
+        <td><%= faves[i].imdbID %></td>
+        <td><img id="favepic" src=<%= faves[i].poster %>></td>
+
+
+        <td style="vertical-align:middle" align="center"><a href="/movies/<%= faves[i].imdbID %>" class="btn btn-stroke-black btn-xs btn-block">Details</a></td>
+
+        <td style="vertical-align:middle" align="center">
+          <a href="/favorites/<%= faves[i].id %>/comments/" class="comments-link btn btn-stroke-black btn-xs btn-block">Comments</a>
+        </td>
+
+        <td style="vertical-align:middle" align="center">
+          <a href="/favorites/<%= faves[i].imdbID %>" class="delete-link btn btn-stroke-black btn-xs btn-block">Delete</a>
+        </td>
+
+  <!--      <td style="vertical-align:middle" align="center">
+          <form class="form" id="favoritesform" action="/favorites/" method="post">
+            <input type="hidden" name="imdbID" value="<%= faves[i].imdbID %>">
+            <input type="submit" style="vertical-align:middle" align="center" class="btn btn-stroke-black btn-xs btn-block" id="deletebutton" value="Delete">
+          </form>
+        </td> -->
+
+
+
+
+      </tr>
+    <% } %>
+
+  </table>
+
+
+
+
+
+
+
+ <% include ../partials/footer %>
